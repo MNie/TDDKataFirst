@@ -76,6 +76,7 @@
     <Compile Include="CalculatorSupportForCustomDelimiters.cs" />
     <Compile Include="DataGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShouldThrowExceptionIfWeCallMethodWithNegativeNumber.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\Kata.Calculator\Kata.Calculator.csproj">

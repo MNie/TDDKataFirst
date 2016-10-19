@@ -9,11 +9,11 @@ open Utils
 type test_single_input() =
     [<Fact>]
     let ``should return exactly the same value if we pass it to a method``() =
-        let test (input: int) =
-            let expectedResult = input
+        let test (input: PositiveInt) =
+            let expectedResult = input.Get
             let result = (new Calculator()).Add("", input.ToString())
             (result = expectedResult)
-                .Label(sprintf "Expected value %d but instead gets %d, value passed to a method: %d" expectedResult result input)
+                .Label(sprintf "Expected value %d but instead gets %d, value passed to a method: %d" expectedResult result input.Get)
         Check.QuickThrowOnFailure test
 
     [<Fact>]

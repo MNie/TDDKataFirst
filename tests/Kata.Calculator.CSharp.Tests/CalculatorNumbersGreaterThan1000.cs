@@ -24,6 +24,7 @@ namespace Kata.Calculator.CSharp.Tests
                 _expectedResult = customDelimiterInput.Values.Where(x => x < DataGenerator.MaximumConsideredValue).Sum();
                 _result = _calc.Add(customDelimiterInput.Delimiter, input);
                 return (_result.Equals(_expectedResult))
+                    .When(customDelimiterInput.Values.Any(x => x > 0))
                     .Label(
                         $"\n When passing single values {input} should return valid result {_expectedResult} , but returns {_result}");
             }).QuickCheckThrowOnFailure();

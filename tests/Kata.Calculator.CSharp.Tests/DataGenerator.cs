@@ -15,7 +15,7 @@ namespace Kata.Calculator.CSharp.Tests
 
         public static Arbitrary<string> ValidSingleInput()
         {
-            var input = Arb.Generate<int>().Where(x => x < MaximumConsideredValue)
+            var input = Arb.Generate<PositiveInt>().Where(x => x.Get < MaximumConsideredValue)
                 .Select(x => x.ToString());
             return input.ToArbitrary();
         }
@@ -34,19 +34,19 @@ namespace Kata.Calculator.CSharp.Tests
 
         public static Arbitrary<CustomInputData> CustomDelimiterWithAllValues()
         {
-            var input = from values in Arb.Generate<int[]>()
+            var input = from values in Arb.Generate<PositiveInt[]>()
                         from delimiter in Arb.Generate<NonEmptyString>()
                         select new CustomInputData()
                         {
                             Delimiter = delimiter.Get,
-                            Values = values
+                            Values = values.Select(x => x.Get).ToArray()
                         };
             return input.ToArbitrary();
         }
 
         private static Gen<int[]> GetValidListOfIntegers()
         {
-            return Arb.Generate<int[]>().Select(x => x.Where(y => y < MaximumConsideredValue).ToArray());
+            return Arb.Generate<PositiveInt[]>().Select(x => x.Where(y => y.Get < MaximumConsideredValue).Select(y => y.Get).ToArray());
         }
     }
 

@@ -12,7 +12,7 @@ type test_new_line_delimiter() =
 
     [<Fact>]
     let ``should return sum of input for new line delimiter``() =
-        let test (dataInput: int[]) =
+        let test (dataInput: PositiveInt[]) =
             let expectedResult = arraySum(dataInput)
             let input = createInput(dataInput, delimiter)
             let result = (new Calculator()).Add(delimiter, input)

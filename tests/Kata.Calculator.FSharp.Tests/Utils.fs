@@ -17,9 +17,10 @@ let isInt(input: string): bool =
 let isNotInt(input: string): bool =
     not <| isInt(input)
 
-let arraySum(array: int[]) = 
+let arraySum(array: PositiveInt[]): int = 
     array 
-    |> Array.filter(fun x -> x < maximumConsideredNumber)
+    |> Array.filter(fun x -> x.Get < maximumConsideredNumber)
+    |> Array.map(fun x -> x.Get)
     |> Array.sum
 
 let createInput(data: 'a[], delimiter: string) =

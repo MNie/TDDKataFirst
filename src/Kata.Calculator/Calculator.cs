@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Kata.Calculator.Exception;
 
 namespace Kata.Calculator
 {
@@ -11,12 +12,20 @@ namespace Kata.Calculator
         {
             return string.IsNullOrWhiteSpace(input) ?
                 0 : 
-                input
-                    .Split(new [] {delimiter}, StringSplitOptions.None)
-                    .Where(ItIsInt)
-                    .Select(int.Parse)
-                    .Where(x => x < MaximumConsiderValue)
-                    .Sum();
+                SumOrThrowException(delimiter, input);
+        }
+
+        private static int SumOrThrowException(string delimiter, string input)
+        {
+            var numbers = input
+                .Split(new[] {delimiter}, StringSplitOptions.None)
+                .Where(ItIsInt)
+                .Select(int.Parse);
+            if (numbers.Any(x => x < 0))
+                throw new NegativeNumbersException(numbers.Where(x => x < 0));
+            return numbers
+                .Where(x => x < MaximumConsiderValue)
+                .Sum();
         }
 
         private static bool ItIsInt(string input)

@@ -10,7 +10,7 @@ open Utils
 type test_values_greater_than_1000() =
     [<Fact>]
     let ``should return sum of input and keep in mind that values greater than 1000 are ignored``() =
-        let test (dataInput: int[], delimiter: NonEmptyString) =
+        let test (dataInput: PositiveInt[], delimiter: NonEmptyString) =
             let expectedResult = arraySum(dataInput)
             let input = createInput(dataInput, delimiter.Get)
             let result = (new Calculator()).Add(delimiter.Get, input)

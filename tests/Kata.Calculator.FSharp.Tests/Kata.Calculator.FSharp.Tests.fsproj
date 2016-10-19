@@ -61,6 +61,7 @@
     <Compile Include="newLineDelimiterSpec.fs" />
     <Compile Include="customDelimiter.fs" />
     <Compile Include="numbersGreaterThan1000ShouldBeIgnored.fs" />
+    <Compile Include="shouldThrowException.fs" />
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

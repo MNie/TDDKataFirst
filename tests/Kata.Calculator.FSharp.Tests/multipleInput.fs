@@ -11,7 +11,7 @@ type test_multiple_input() =
 
     [<Fact>]
     let ``should return sum of input``() =
-        let test (dataInput: int[]) =
+        let test (dataInput: PositiveInt[]) =
             let expectedResult = arraySum(dataInput)
             let input = createInput(dataInput, delimiter)
             let result = (new Calculator()).Add(delimiter, input)
