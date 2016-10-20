@@ -68,12 +68,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CalculatorEmptyInputSpec.cs" />
-    <Compile Include="CalculatorMultipleInputSpecs.cs" />
-    <Compile Include="CalculatorNewLineDelimiterSpecs.cs" />
     <Compile Include="CalculatorNumbersGreaterThan1000.cs" />
-    <Compile Include="CalculatorSingleInputSpecs.cs" />
-    <Compile Include="CalculatorSupportForCustomDelimiters.cs" />
     <Compile Include="DataGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShouldThrowExceptionIfWeCallMethodWithNegativeNumber.cs" />
