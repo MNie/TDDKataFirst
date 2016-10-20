@@ -24,11 +24,12 @@ namespace Kata.Calculator.CSharp.Tests
         {
             var input = from values in GetValidListOfIntegers()
                         from delimiter in Arb.Generate<NonEmptyString>()
-                select new CustomInputData()
-                {
-                    Delimiter = delimiter.Get,
-                    Values = values
-                };
+                        where IsInt(delimiter.Item) == false
+                        select new CustomInputData()
+                        {
+                            Delimiter = delimiter.Get,
+                            Values = values
+                        };
             return input.ToArbitrary();
         }
 
@@ -36,12 +37,19 @@ namespace Kata.Calculator.CSharp.Tests
         {
             var input = from values in Arb.Generate<PositiveInt[]>()
                         from delimiter in Arb.Generate<NonEmptyString>()
+                        where IsInt(delimiter.Item) == false
                         select new CustomInputData()
                         {
                             Delimiter = delimiter.Get,
                             Values = values.Select(x => x.Get).ToArray()
                         };
             return input.ToArbitrary();
+        }
+
+        private static bool IsInt(string value)
+        {
+            var parsedValue = 0;
+            return int.TryParse(value, out parsedValue);
         }
 
         public static Arbitrary<int[]> ValuesBiggerThan1000()
@@ -51,7 +59,7 @@ namespace Kata.Calculator.CSharp.Tests
                 .Select(y => y.Get)
                 .ToArray())
                 .ToArbitrary();
-        } 
+        }
 
         private static Gen<int[]> GetValidListOfIntegers()
         {
