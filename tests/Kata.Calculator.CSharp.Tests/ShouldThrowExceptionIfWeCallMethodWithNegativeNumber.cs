@@ -1,4 +1,5 @@
-﻿using Kata.Calculator.Exception;
+﻿using FsCheck;
+using Kata.Calculator.Exception;
 using Xunit;
 
 namespace Kata.Calculator.CSharp.Tests
@@ -7,8 +8,6 @@ namespace Kata.Calculator.CSharp.Tests
     {
         private readonly Calculator _calc;
         private string _input;
-        private int _expectedResult;
-        private int _result;
 
         public ShouldThrowExceptionIfWeCallMethodWithNegativeNumber()
         {
@@ -18,11 +17,14 @@ namespace Kata.Calculator.CSharp.Tests
         [Fact]
         public void check_if_add_return_zero_for_empty_input()
         {
-            const string delimiter = "";
-            _input = "-2";
-            _expectedResult = 0;
+            const string delimiter = " ";
 
-            Assert.Throws<NegativeNumbersException>(() => _calc.Add(delimiter, _input));
+            Prop.ForAll(DataGenerator.ValuesBiggerThan1000(), input =>
+            {
+                _input = string.Join(delimiter, input);
+                Assert.Throws<NegativeNumbersException>(() => _calc.Add(delimiter, _input));
+            });
+
         }
     }
 }

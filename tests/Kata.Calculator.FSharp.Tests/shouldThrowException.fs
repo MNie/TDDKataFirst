@@ -15,5 +15,5 @@ type should_throw_exception() =
         let test (input: PositiveInt) =
             let negativeInput = input.Get * -1
             let expectedResult = negativeInput
-            Assert.Throws<NegativeNumbersException>(fun () -> (new Calculator()).Add("", negativeInput.ToString()) |> ignore)
+            Assert.Throws<NegativeNumbersException>(fun () -> (new Calculator()).Add("", negativeInput.ToString()) |> ignore) |> ignore
         Check.QuickThrowOnFailure test

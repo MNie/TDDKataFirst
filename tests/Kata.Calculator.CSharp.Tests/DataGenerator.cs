@@ -44,9 +44,21 @@ namespace Kata.Calculator.CSharp.Tests
             return input.ToArbitrary();
         }
 
+        public static Arbitrary<int[]> ValuesBiggerThan1000()
+        {
+            return Arb.Generate<PositiveInt[]>()
+                .Select(x => x.Where(y => y.Get > MaximumConsideredValue)
+                .Select(y => y.Get)
+                .ToArray())
+                .ToArbitrary();
+        } 
+
         private static Gen<int[]> GetValidListOfIntegers()
         {
-            return Arb.Generate<PositiveInt[]>().Select(x => x.Where(y => y.Get < MaximumConsideredValue).Select(y => y.Get).ToArray());
+            return Arb.Generate<PositiveInt[]>()
+                .Select(x => x.Where(y => y.Get < MaximumConsideredValue)
+                .Select(y => y.Get)
+                .ToArray());
         }
     }
 
