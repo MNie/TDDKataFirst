@@ -55,11 +55,6 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Utils.fs" />
-    <Compile Include="testEmptyInput.fs" />
-    <Compile Include="singleInput.fs" />
-    <Compile Include="multipleInput.fs" />
-    <Compile Include="newLineDelimiterSpec.fs" />
-    <Compile Include="customDelimiter.fs" />
     <Compile Include="numbersGreaterThan1000ShouldBeIgnored.fs" />
     <Compile Include="shouldThrowException.fs" />
     <Content Include="packages.config" />
