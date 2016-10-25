@@ -7,9 +7,9 @@ open FsCheck
 open Kata.Calculator
 open Utils
 
-type test_values_greater_than_1000() =
+type test_valid_values() =
     [<Fact>]
-    let ``should return sum of input and keep in mind that values greater than 1000 are ignored``() =
+    let ``should return correct sum``() =
         let test (dataInput: PositiveInt[], delimiter: NonEmptyString) =
             let expectedResult = arraySum(dataInput)
             let input = createInput(dataInput, delimiter.Get)

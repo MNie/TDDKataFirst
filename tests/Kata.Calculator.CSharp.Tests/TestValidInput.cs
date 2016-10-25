@@ -4,19 +4,19 @@ using Xunit;
 
 namespace Kata.Calculator.CSharp.Tests
 {
-    public class CalculatorNumbersGreaterThan1000
+    public class TestValidInput
     {
         private readonly Calculator _calc;
         private int _expectedResult;
         private int _result;
 
-        public CalculatorNumbersGreaterThan1000()
+        public TestValidInput()
         {
             _calc = new Calculator();
         }
 
         [Fact]
-        public void When_passing_values_greather_than_1000_they_should_be_ignored()
+        public void When_passing_valid_values_should_return_valid_sum()
         {
             Prop.ForAll(DataGenerator.CustomDelimiterWithAllValues(), customDelimiterInput =>
             {

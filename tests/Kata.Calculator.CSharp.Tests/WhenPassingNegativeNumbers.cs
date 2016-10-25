@@ -4,18 +4,18 @@ using Xunit;
 
 namespace Kata.Calculator.CSharp.Tests
 {
-    public class ShouldThrowExceptionIfWeCallMethodWithNegativeNumber
+    public class WhenPassingNegativeNumbers
     {
         private readonly Calculator _calc;
         private string _input;
 
-        public ShouldThrowExceptionIfWeCallMethodWithNegativeNumber()
+        public WhenPassingNegativeNumbers()
         {
             _calc = new Calculator();
         }
 
         [Fact]
-        public void check_if_add_return_zero_for_empty_input()
+        public void should_throw_expection_if_negatives_are_passed_to_a_method()
         {
             const string delimiter = " ";
 
