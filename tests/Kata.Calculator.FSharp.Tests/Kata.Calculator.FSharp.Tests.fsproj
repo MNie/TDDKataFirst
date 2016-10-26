@@ -54,9 +54,7 @@
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
-    <Compile Include="Utils.fs" />
-    <Compile Include="numbersGreaterThan1000ShouldBeIgnored.fs" />
-    <Compile Include="shouldThrowException.fs" />
+    <Compile Include="testValidInput.fs" />
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

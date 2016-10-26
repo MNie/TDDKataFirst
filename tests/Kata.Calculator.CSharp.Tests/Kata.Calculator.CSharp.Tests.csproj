@@ -68,10 +68,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CalculatorNumbersGreaterThan1000.cs" />
-    <Compile Include="DataGenerator.cs" />
+    <Compile Include="TestValidInput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShouldThrowExceptionIfWeCallMethodWithNegativeNumber.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\Kata.Calculator\Kata.Calculator.csproj">
