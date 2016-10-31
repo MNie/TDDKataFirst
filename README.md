@@ -1,2 +1,2 @@
-# TDDKataFirst
-TDD kata in F# and/or C# with xUnit and FsCheck
+# TDD kata in F#/C# using FsCheck
+https://mnie.github.io/2016-10-26-TDDKataInFSharpAndCSharpUsingFsCheck/
